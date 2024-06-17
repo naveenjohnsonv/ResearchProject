@@ -81,10 +81,10 @@ Root Mean Squared Error (RMSE) was chosen as the metric for evaluation. The foll
 | kNNCV | Hour | A | 6 | - | 0.54 |
 | kNNCV | Hour | I | 4 | - | 0.57 |
 | kNNCV | Hour | M | 6 | - | 0.56 |
-| kNNCV | Hour | D | 6 | - | 0.56 |
-| kNNCV | Hour | D, A | 4 | - | 0.54 |
-| kNNCV | Hour | D, I | 6 | - | 0.56 |
-| kNNCV | Hour | D, M | 4 | - | 0.53 |
+| kNNCV | Hour | D | 6 | - | 0.565 |
+| kNNCV | Hour | D, A | 4 | - | 0.544 |
+| kNNCV | Hour | D, I | 6 | - | 0.565 |
+| kNNCV | Hour | D, M | 4 | - | 0.529 |
 
 Here D, A, I, M represents the features DC Power, Ambient Temperature, Irradiation, Module Temperature respectively. 
 
