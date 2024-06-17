@@ -77,6 +77,8 @@ Root Mean Squared Error (RMSE) was chosen as the metric for evaluation. The foll
 | LassoCV | Hour | A | - | 0.253 | 0.593 |
 | **LassoCV** | **Hour** | **D, A** | - | **0.206** | **0.538** |
 | LassoCV | Hour | D, A, I | - | 0.206 | 0.538 |
+| KNN | Day | D | - | 7 | 0.740 |
+| KNN | Day | D, A, I, M | 7 | - | 0.726 |
 | kNNCV | Hour | D | 6 | - | 0.565 |
 | kNNCV | Hour | A | 6 | - | 0.536 |
 | kNNCV | Hour | I | 4 | - | 0.570 |
@@ -84,7 +86,7 @@ Root Mean Squared Error (RMSE) was chosen as the metric for evaluation. The foll
 | kNNCV | Hour | D | 6 | - | 0.565 |
 | kNNCV | Hour | D, A | 4 | - | 0.544 |
 | kNNCV | Hour | D, I | 6 | - | 0.565 |
-| kNNCV | Hour | D, M | 4 | - | 0.529 |
+| **kNNCV** | **Hour** | **D, M** | **4** | - | **0.529** |
 
 Here D, A, I, M represents the features DC Power, Ambient Temperature, Irradiation, Module Temperature respectively. 
 
