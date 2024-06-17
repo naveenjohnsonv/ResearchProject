@@ -33,9 +33,9 @@ The project uses two main machine learning techniques: Lasso regression and k-Ne
 ### Models
 
 - **Lasso with default alpha:** A simple implementation of Lasso regression with a default regularization parameter.
-- **LassoCV with hyperparameter tuning:** Utilizes cross-validation to find the optimal alpha (regularization parameter) for the Lasso model.
-- **kNN with default n neighbors:** A basic k-Nearest Neighbors model.
-- **kNN with gridsearch hyperparameter tuning:** Employs grid search to find the best number of neighbors for the kNN model.
+- **LassoCV with hyperparameter tuning:** Utilizes time series cross-validation to find the optimal alpha (regularization parameter) for the Lasso model.
+- **kNN with hyperparameter tuning:** A basic k-Nearest Neighbors model with an automated selection of the best k neighbors.
+- **kNNCV with hyperparameter tuning:** Employs time series cross-validation on top of hyperparameter tuning.
 
 ### Experiments
 
@@ -77,7 +77,14 @@ Root Mean Squared Error (RMSE) was chosen as the metric for evaluation. The foll
 | LassoCV | Hour | A | - | 0.253 | 0.593 |
 | **LassoCV** | **Hour** | **D, A** | - | **0.206** | **0.538** |
 | LassoCV | Hour | D, A, I | - | 0.206 | 0.538 |
-| kNN | Day | D |  | - |  |
+| kNNCV | Hour | D | 6 | - | 0.56 |
+| kNNCV | Hour | A | 6 | - | 0.54 |
+| kNNCV | Hour | I | 4 | - | 0.57 |
+| kNNCV | Hour | M | 6 | - | 0.56 |
+| kNNCV | Hour | D | 6 | - | 0.56 |
+| kNNCV | Hour | D, A | 4 | - | 0.54 |
+| kNNCV | Hour | D, I | 6 | - | 0.56 |
+| kNNCV | Hour | D, M | 4 | - | 0.53 |
 
 Here D, A, I, M represents the features DC Power, Ambient Temperature, Irradiation, Module Temperature respectively. 
 
