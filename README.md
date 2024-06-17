@@ -77,10 +77,10 @@ Root Mean Squared Error (RMSE) was chosen as the metric for evaluation. The foll
 | LassoCV | Hour | A | - | 0.253 | 0.593 |
 | **LassoCV** | **Hour** | **D, A** | - | **0.206** | **0.538** |
 | LassoCV | Hour | D, A, I | - | 0.206 | 0.538 |
-| kNNCV | Hour | D | 6 | - | 0.56 |
-| kNNCV | Hour | A | 6 | - | 0.54 |
-| kNNCV | Hour | I | 4 | - | 0.57 |
-| kNNCV | Hour | M | 6 | - | 0.56 |
+| kNNCV | Hour | D | 6 | - | 0.565 |
+| kNNCV | Hour | A | 6 | - | 0.536 |
+| kNNCV | Hour | I | 4 | - | 0.570 |
+| kNNCV | Hour | M | 6 | - | 0.561 |
 | kNNCV | Hour | D | 6 | - | 0.565 |
 | kNNCV | Hour | D, A | 4 | - | 0.544 |
 | kNNCV | Hour | D, I | 6 | - | 0.565 |
