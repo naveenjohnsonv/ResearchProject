@@ -42,7 +42,7 @@ The project uses two main machine learning techniques: Lasso regression and k-Ne
 The project conducts several experiments to evaluate the performance of different models:
 
 1. **Univariate one-day-ahead prediction with 1 lag:** Uses only the previous day's DC power to predict the current day's DC power.
-2. **Multivariate (multiple features) one-day-ahead prediction with 1 lag:** Includes lagged values of multiple features (DC power, ambient temperature, module temperature, and irradiation) to predict the current day's DC power.
+2. **Multivariate (multiple features) one-day-ahead prediction with 1 lag:** Uses lagged daily average of multiple features (DC power, ambient temperature, module temperature, and irradiation) to predict the current day's DC power.
 3. **Multivariate (hourly train data as features) one-day-ahead prediction with 1 lag:** Utilizes hourly weather data and lagged features to predict the current day's DC power. Different feature combinations are explored using LassoCV to find the best alpha and feature set.
 
 ### Data
@@ -67,7 +67,19 @@ The project presents results for various models with different feature combinati
 - Actual vs. predicted DC power for different models.
 - RMSE values for different feature sets and cross-validation splits.
 
-The best-performing models and feature sets are highlighted, providing insights into the most relevant factors for solar power prediction.
+Root Mean Squared Error (RMSE) was chosen as the metric for evaluation. The following table presents a comparison of different regression models and their performance in predicting the current day DC power. The best-performing models and feature sets are highlighted, providing insights into the most relevant factors for solar power prediction.
+
+| Model  | Sample Frequency | Sample Features | No. of neighbours (n) | Regularization strength (&alpha;) | RMSE |
+|:--------|:----------------|:---------------|:---:|:---:|:----:|
+| Lasso | Day | D | - | 1.0 | 0.637 |
+| Lasso | Day | D, A, I, M | - | 1.0 | 0.637 |
+| LassoCV | Hour | D | - | 0.225| 0.542 |
+| LassoCV | Hour | A | - | 0.253 | 0.593 |
+| **LassoCV** | **Hour** | **D, A** | - | **0.206** | **0.538** |
+| LassoCV | Hour | D, A, I | - | 0.206 | 0.538 |
+| kNN | Day | D |  | - |  |
+
+Where D, A, I, M represents the features DC Power, Ambient Temperature, Irradiation, Module Temperature respectively. 
 
 ## Installation
 
