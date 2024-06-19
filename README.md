@@ -139,24 +139,24 @@ ResearchProject/
 │   ├── solar-power-prediction-lasso.ipynb
 ├── report/
 │   ├── Figures
-│       ├── multi_pred_vs_actual.jpg
-│       ├── rmse_vs_alpha_lasso.jpg
-│       ├── uni-multi.jpg
-│       ├── CV_Evo.png
-│       ├── CV_F_Evo.png
-│       ├── Daily_Evo.png
-│       ├── dc_by_date_f.png
-│       ├── dc_by_hour_f.png
-│       ├── hourDC.png
-│       ├── hourDCF.png
-│       ├── hourDCPoint.png
-│       ├── time_series_split.png
+│   │   ├── multi_pred_vs_actual.jpg
+│   │   ├── rmse_vs_alpha_lasso.jpg
+│   │   ├── uni-multi.jpg
+│   │   ├── CV_Evo.png
+│   │   ├── CV_F_Evo.png
+│   │   ├── Daily_Evo.png
+│   │   ├── dc_by_date_f.png
+│   │   ├── dc_by_hour_f.png
+│   │   ├── hourDC.png
+│   │   ├── hourDCF.png
+│   │   ├── hourDCPoint.png
+│   │   ├── time_series_split.png
 │   ├── Sections
-│       ├── 01-Introduction.tex
-│       ├── 02-Background-and-Related-Work.tex
-│       ├── 03-Methodology.tex
-│       ├── 04-Results-and-Discussion.tex
-│       ├── 05-Conclusion.tex
+│   │   ├── 01-Introduction.tex
+│   │   ├── 02-Background-and-Related-Work.tex
+│   │   ├── 03-Methodology.tex
+│   │   ├── 04-Results-and-Discussion.tex
+│   │   ├── 05-Conclusion.tex
 │   ├── Main.tex
 │   ├── NobArticle.cls
 │   ├── Report.pdf
