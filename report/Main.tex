@@ -1,0 +1,106 @@
+% Packages & Document Configurations
+\documentclass[twocolumn]{NobArticle}
+\usepackage{titling}
+\usepackage{float}
+\usepackage{tabularray}
+
+\runninghead{ResProj: Projet de Recherche}
+
+% Define subtitle command as per search result [1]
+\newcommand{\subtitle}[1]{%
+    \posttitle{%
+        \par\end{center}
+        \begin{center}\large#1\end{center}
+        }%
+}
+
+% Title with subtitles
+\title{\centering Comparative Analysis of Machine Learning Models in Predictive Manners}
+
+% Authors
+\author{\centering
+    Aymeric LEGROS\textsuperscript{1}
+    and Naveen JOHNSON VALLAVANATT\textsuperscript{1}
+}
+
+% Affiliations
+\date{\centering
+    \textsuperscript{\textbf{1}}
+    Data Science, EURECOM, France \\
+}
+
+% Abstract
+\renewcommand{\maketitlehookd}{%
+\begin{abstract}
+    \noindent This project compares the performance of Lasso and k-Nearest Neighbors (kNN) regression models for predicting daily DC power generation from a solar plant, using weather conditions and lagged features. The study reveals that Lasso regression, particularly with hyperparameter tuning (LassoCV), generally outperforms kNN. However, both models struggle to achieve high accuracy, highlighting the need for improved feature engineering and a larger, more diverse dataset. The findings underscore the importance of careful model selection, hyperparameter optimization, and data quality in building accurate solar power generation forecasting models.
+
+    \medskip
+
+    \small{\textbf{Index Terms:} Solar power prediction, kNN regression, Lasso regression, Time series analysis, Feature selection, Model evaluation, Root Mean Square Error (RMSE), Renewable energy forecasting, Day-ahead forecasting.}
+\end{abstract}
+}
+
+\begin{document}
+
+\small
+\maketitle
+
+\input{Sections/01-Introduction}
+\input{Sections/02-Background-and-Related-Work}
+\input{Sections/03-Methodology}
+\input{Sections/04-Results-and-Discussion}
+\input{Sections/05-Conclusion}
+
+\section*{Acknowledgements}
+This research received support during the ResProj course, from Professor Motonobu KANAGAWA and Ms. Parastoo PASHMCHI.
+
+\begin{thebibliography}{9}
+
+\bibitem{arxiv1802.03913}
+Assessing the Utility of Weather Data for Photovoltaic Power Prediction (2018).
+\url{https://arxiv.org/abs/1802.03913}
+
+\bibitem{arxiv1710.03803}  
+Day-Ahead Solar Forecasting Based on Multi-level Solar Measurements (2017).
+\url{https://arxiv.org/abs/1710.03803}
+
+\bibitem{arxiv2403.01653}
+Day-ahead regional solar power forecasting with hierarchical temporal convolutional neural networks using historical power generation and weather data (2024). 
+\url{https://arxiv.org/abs/2403.01653}
+
+\bibitem{arxiv2109.13442}
+An Adaptive Deep Learning Framework for Day-ahead Forecasting of Photovoltaic Power Generation (2021).
+\url{https://arxiv.org/abs/2109.13442}
+
+\bibitem{arxiv2011.09950}
+Improving Solar and PV Power Prediction with Ensemble Methods (2020).
+\url{https://arxiv.org/abs/2011.09950}
+
+\bibitem{ieee8306874}
+Solar Power Generation Forecasting With a LASSO-Based Approach (2018).
+\url{https://ieeexplore.ieee.org/document/8306874}
+
+\bibitem{ieee8066360}
+Day-Ahead Hourly Forecasting of Power Generation From Photovoltaic Plants (2017).
+\url{https://ieeexplore.ieee.org/document/8066360}
+
+\bibitem{arxiv2104.07352}
+Day-Ahead and Intra-Day Planning of Integrated BESS-PV Systems providing Frequency Regulation (2021).
+\url{https://arxiv.org/abs/2104.07352}
+
+\bibitem{arxiv2301.05911}
+Day-Ahead PV Power Forecasting Based on MSTL-TFT (2023).
+\url{https://arxiv.org/abs/2301.05911}
+
+\bibitem{atlantis125995001}
+Trend-Based K-Nearest Neighbor Algorithm in Stock Price Prediction (2023).
+\url{https://www.atlantis-press.com/proceedings/deca-23/125995001}
+
+\bibitem{solar-kaggle}
+Pietro Michiardi. Solar Power Generation Data – Solar power generation and sensor data for two power plants.
+\url{https://www.kaggle.com/datasets/anikannal/solar-power-generation-data}.
+2020.
+
+\end{thebibliography}
+
+\end{document}
