@@ -1,6 +1,6 @@
 \section{Methodology}
 
-This section outlines the methodological framework adopted for this study on predicting solar power generation. The approach leverages machine learning techniques, specifically Lasso Regression with and without cross-validation, and k-Nearest Neighbors (kNN) with and without hyperparameter tuning, to model the relationship between weather conditions, lagged features, and DC power output. 
+This section outlines the methodological framework adopted for this study on predicting solar power generation. The approach leverages machine learning techniques, specifically LASSO Regression with and without cross-validation, and k-Nearest Neighbors (kNN) with and without hyperparameter tuning, to model the relationship between weather conditions, lagged features, and DC power output. 
 
 \subsection{Data}
 
@@ -45,8 +45,8 @@ It is important to note that data normalization was skipped, despite it usually 
 This study explored both linear and non-linear modeling approaches, with variations in hyperparameter settings, to comprehensively evaluate their effectiveness in predicting DC power generation:
 
 \begin{enumerate}
-   \item \textbf{Lasso Regression:} A linear regression technique that incorporates L1 regularization, adding a penalty to model complexity and shrinking coefficients of less important features. This model was implemented with a default regularization parameter.
-   \item \textbf{LassoCV (Lasso Regression with Cross-Validation):} Extends Lasso regression by using cross-validation to find the optimal regularization parameter (\(\lambda\)).  LassoCV tested a range of  \(\lambda\) values from 0.001 to 1 to prevent overfitting and select relevant features. Time series cross-validation (TimeSeriesSplit), implementation as seen in Figure \ref{fig:time_series_split} was specifically employed to respect the temporal order of the data during model evaluation.
+   \item \textbf{LASSO Regression:} A linear regression technique that incorporates L1 regularization, adding a penalty to model complexity and shrinking coefficients of less important features. This model was implemented with a default regularization parameter.
+   \item \textbf{LassoCV (LASSO Regression with Cross-Validation):} Extends LASSO regression by using cross-validation to find the optimal regularization parameter (\(\lambda\)).  LassoCV tested a range of  \(\lambda\) values from 0.001 to 1 to prevent overfitting and select relevant features. Time series cross-validation (TimeSeriesSplit), implementation as seen in Figure \ref{fig:time_series_split} was specifically employed to respect the temporal order of the data during model evaluation.
    \item \textbf{kNN (k-Nearest Neighbors):} A non-parametric method that predicts an output based on the values of its \emph{k} nearest neighbors in the feature space. This model was implemented using hyperparameter tuning for an automated selection of the best \emph{k} neighbors. The model explored \emph{k} values from 3 to 6 to minimize prediction error. 
    \item \textbf{kNN with Cross-Validation:} Improves upon the basic kNN by using cross-validation on top of hyperparameter tuning to determine the optimal number of neighbors (\emph{k}). Similar to LassoCV, time series cross-validation was used to maintain temporal consistency during model assessment. 
 \end{enumerate} 
@@ -62,7 +62,7 @@ All models were trained using an 80\% split of the data and tested on the remain
 
 \subsection{Experiments}
 
-Here, and in the proceeding sections we abbreviate several terms: $D$ for DC power, $A$ for ambient temperature, $M$ for module temperature, and $I$ for irradiation. To evaluate the performance of Lasso and kNN under various scenarios, the following experiments were designed:
+Here, and in the proceeding sections we abbreviate several terms: $D$ for DC power, $A$ for ambient temperature, $M$ for module temperature, and $I$ for irradiation. To evaluate the performance of LASSO and kNN under various scenarios, the following experiments were designed:
 
 \begin{enumerate}
 
