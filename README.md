@@ -137,6 +137,7 @@ ResearchProject/
 │   ├── Plant_1_Weather_Sensor_Data.csv
 ├── notebooks/
 │   ├── solar-power-prediction-lasso.ipynb
+│   ├── solar_power_prediction_kNN.ipynb
 ├── report/
 │   ├── Figures
 │   │   ├── multi_pred_vs_actual.jpg
