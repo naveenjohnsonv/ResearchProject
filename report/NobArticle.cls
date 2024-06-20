@@ -53,6 +53,53 @@
 \usepackage[varqu]{zi4}
 \usepackage[libertine]{newtxmath}
 
+% Bibliography
+\usepackage[
+	backend=biber, % Use the biber backend for compiling the bibliography
+	citestyle=authoryear, % In-text citation style
+	bibstyle=authoryear, % Bibliography style
+	sorting=nyt, % Order references
+    natbib=true, % Use natbib compatibility mode
+    uniquelist=false % Only show one author, e.g. (Author et al., 2023)
+]{biblatex}
+
+\setlength\bibitemsep{1.5\itemsep} % Adjust the space between references
+\setlength\bibhang{0pt} % Remove indentation
+\renewcommand*{\bibfont}{\scriptsize} % Change references font size
+\addbibresource{Bibliography/Bibliography.bib} % Reference document
+
+% Highlight both Author and Year in the citations
+\ExecuteBibliographyOptions{maxcitenames=1}
+\DeclareFieldFormat{citehyperref}{%
+  \DeclareFieldAlias{bibhyperref}{noformat}% Avoid nested links
+  \bibhyperref{#1}}
+\DeclareFieldFormat{textcitehyperref}{%
+  \DeclareFieldAlias{bibhyperref}{noformat}% Avoid nested links
+  \bibhyperref{%
+    #1%
+    \ifbool{cbx:parens}
+      {\bibcloseparen\global\boolfalse{cbx:parens}}
+      {}}}
+\savebibmacro{cite}
+\savebibmacro{textcite}
+\renewbibmacro*{cite}{%
+  \printtext[citehyperref]{%
+    \restorebibmacro{cite}%
+    \usebibmacro{cite}}}
+\renewbibmacro*{textcite}{%
+  \ifboolexpr{
+    ( not test {\iffieldundef{prenote}} and
+      test {\ifnumequal{\value{citecount}}{1}} )
+    or
+    ( not test {\iffieldundef{postnote}} and
+      test {\ifnumequal{\value{citecount}}{\value{citetotal}}} )
+  }
+    {\DeclareFieldAlias{textcitehyperref}{noformat}}
+    {}%
+  \printtext[textcitehyperref]{%
+    \restorebibmacro{textcite}%
+    \usebibmacro{textcite}}}
+
 % Tables
 \usepackage{tabularx} % Table length
 \usepackage{booktabs} % Table style

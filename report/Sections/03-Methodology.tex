@@ -4,7 +4,7 @@ This section outlines the methodological framework adopted for this study on pre
 
 \subsection{Data}
 
-The project utilizes two datasets sourced from the "Solar Power Generation Data" repository available in Kaggle \cite{solar-kaggle}:
+The project utilizes two datasets sourced from the "Solar Power Generation Data" repository available in Kaggle \citep{solar-power-2020}:
 
 \begin{enumerate}
    \item \textbf{Generation Data:} This dataset encompasses records of DC power, AC power, daily yield, and total yield, all captured at 15-minute intervals across a span of 34 days.
@@ -35,19 +35,19 @@ Prior to model training and analysis, the raw datasets underwent a series of pre
    \item \textbf{Data Loading and Resampling:} Both datasets were loaded into the Python environment, with the date-time columns being converted into a consistent and analysis-friendly format. The initial 15-minute frequency of data collection was resampled into two different datasets with both daily and hourly aggregations. This provided flexibility in exploring models sensitive to different temporal resolutions.
    \item \textbf{Merging Datasets:} The generation and weather data were merged into a unified dataset based on their corresponding date-time stamps. This ensured that weather features and power generation values were properly aligned for each observation.
    \item \textbf{Feature Engineering:} Lagged features, representing past values of DC power and weather variables, were generated. These lagged features aimed to capture potential time-dependent patterns and enhance the predictive power of the models.
-   \item \textbf{Imputation:} The KNN Imputer was employed to address any remaining missing values in the dataset. This method leverages the values of neighboring data points to estimate and fill in missing entries, preserving data integrity for model training.
+   \item \textbf{Imputation:} The KNN Imputer was employed to address any remaining missing values in the dataset. This method leverages the values of neighboring data points to estimate and fill in missing entries, preserving data integrity for model training \citep{Batista_2003}.
 \end{enumerate} 
 
-It is important to note that data normalization was skipped, despite it usually being a crucial step in machine learning pipelines, to preserve the original scale of the data and provide a clearer sense of the models' performance metrics.
+It is important to note that data normalization was skipped, despite it usually being a crucial step in machine learning pipelines, to preserve the original scale of the data and provide a clearer sense of the models' performance metrics \citep{rs15123095}.
 
 \subsection{Model}
 
 This study explored both linear and non-linear modeling approaches, with variations in hyperparameter settings, to comprehensively evaluate their effectiveness in predicting DC power generation:
 
 \begin{enumerate}
-   \item \textbf{LASSO Regression:} A linear regression technique that incorporates L1 regularization, adding a penalty to model complexity and shrinking coefficients of less important features. This model was implemented with a default regularization parameter.
-   \item \textbf{LassoCV (LASSO Regression with Cross-Validation):} Extends LASSO regression by using cross-validation to find the optimal regularization parameter (\(\lambda\)).  LassoCV tested a range of  \(\lambda\) values from 0.001 to 1 to prevent overfitting and select relevant features. Time series cross-validation (TimeSeriesSplit), implementation as seen in Figure \ref{fig:time_series_split} was specifically employed to respect the temporal order of the data during model evaluation.
-   \item \textbf{kNN (k-Nearest Neighbors):} A non-parametric method that predicts an output based on the values of its \emph{k} nearest neighbors in the feature space. This model was implemented using hyperparameter tuning for an automated selection of the best \emph{k} neighbors. The model explored \emph{k} values from 3 to 6 to minimize prediction error. 
+   \item \textbf{LASSO Regression:} A linear regression technique that incorporates L1 regularization, adding a penalty to model complexity and shrinking coefficients of less important features \citep{Elgamal1985}. This model was implemented with a default regularization parameter.
+   \item \textbf{LassoCV (LASSO Regression with Cross-Validation):} Extends LASSO regression by using cross-validation to find the optimal regularization parameter (\(\lambda\)) \citep{Nordhausen_2009}.  LassoCV tested a range of  \(\lambda\) values from 0.001 to 1 to prevent overfitting and select relevant features. Time series cross-validation (TimeSeriesSplit), implementation as seen in Figure \ref{fig:time_series_split} was specifically employed to respect the temporal order of the data during model evaluation \citep{Hyndman_2017}.
+   \item \textbf{kNN (k-Nearest Neighbors):} A non-parametric method that predicts an output based on the values of its \emph{k} nearest neighbors in the feature space \citep{Altman_1992}. This model was implemented using hyperparameter tuning for an automated selection of the best \emph{k} neighbors. The model explored \emph{k} values from 3 to 6 to minimize prediction error. 
    \item \textbf{kNN with Cross-Validation:} Improves upon the basic kNN by using cross-validation on top of hyperparameter tuning to determine the optimal number of neighbors (\emph{k}). Similar to LassoCV, time series cross-validation was used to maintain temporal consistency during model assessment. 
 \end{enumerate} 
 
@@ -58,14 +58,13 @@ This study explored both linear and non-linear modeling approaches, with variati
     \label{fig:time_series_split}
 \end{figure}
 
-All models were trained using an 80\% split of the data and tested on the remaining 20\%, with a temporally consistent division without shuffling to preserve the continuity of the time series and prevent data leakage.
+All models were trained using an 80\% split of the data and tested on the remaining 20\%, with a temporally consistent division without shuffling to preserve the continuity of the time series and prevent data leakage. \newline
 
 \subsection{Experiments}
 
 Here, and in the proceeding sections we abbreviate several terms: $D$ for DC power, $A$ for ambient temperature, $M$ for module temperature, and $I$ for irradiation. To evaluate the performance of LASSO and kNN under various scenarios, the following experiments were designed:
 
 \begin{enumerate}
-
    \item \textbf{Univariate One-day-ahead Prediction with 1 Lag:} This experiment focused on predicting the current day's average DC power solely based on the previous day's average DC power.
 
 \begin{tikzpicture}[
@@ -83,7 +82,7 @@ Here, and in the proceeding sections we abbreviate several terms: $D$ for DC pow
   $\bar{D_{26}}$ \\
   $\bar{D_{27}}$  \\
   \vdots \\
-  $\bar{D_{32}}$ \\ 
+  $\bar{D_{32}}$ \\
 };
 
 % Target column (D) - referencing matrix nodes
@@ -190,7 +189,7 @@ Here, and in the proceeding sections we abbreviate several terms: $D$ for DC pow
 
 \subsection{Evaluation}
 
-Model performance was rigorously evaluated using the Root Mean Squared Error (RMSE) metric. RMSE quantifies the average magnitude of prediction errors, providing a measure of how well the model's predictions align with the actual DC power values. Lower RMSE values indicate better predictive accuracy.
+Model performance was rigorously evaluated using the Root Mean Squared Error (RMSE) metric. RMSE quantifies the average magnitude of prediction errors, providing a measure of how well the model's predictions align with the actual DC power values. Lower RMSE values indicate better predictive accuracy \citep{3f9716f9-d734-3af0-8b8b-7b1fe78e6a75}.
 
 $RMSE: \sqrt{\frac{1}{6}\sum_{i=1}^{6} \left[ (y_{test})_i - Model.Predict(x_{test})_i \right]^2}$
 

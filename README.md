@@ -139,6 +139,8 @@ ResearchProject/
 │   ├── solar-power-prediction-lasso.ipynb
 │   ├── solar_power_prediction_kNN.ipynb
 ├── report/
+│   ├── Bibliography
+│   │   ├── Bibliography.bib
 │   ├── Figures
 │   │   ├── multi_pred_vs_actual.jpg
 │   │   ├── rmse_vs_alpha_lasso.jpg
